@@ -5,6 +5,7 @@
 #include<classes.h>
 using namespace std;
 
+
 const int WIDTH = 30;
 const int HEIGHT = 20;
 
@@ -164,8 +165,7 @@ void shoot()//вистріл гравця
           hit(z);
           break;
          }
-
-          if(map[player.getX()][player.getY()-i]==static_cast<char>(178)||map[player.getX()][player.getY()-i]=='#')
+         if(map[player.getX()][player.getY()-i]==static_cast<char>(178)||map[player.getX()][player.getY()-i]=='#')//
             {
               wall_damage(player.getX(),player.getY()-i);
             break;
@@ -189,7 +189,7 @@ void shoot()//вистріл гравця
            break;
          }
 
-          if(map[player.getX()][player.getY()+i]==static_cast<char>(178)||map[player.getX()][player.getY()+i]=='#')
+          if(map[player.getX()][player.getY()+i]==static_cast<char>(178)||map[player.getX()][player.getY()+i]=='#')//
             {
               wall_damage(player.getX(),player.getY()+i);
             break;
@@ -215,7 +215,7 @@ void shoot()//вистріл гравця
                  break;
                }
 
-               if(map[player.getX()-i][player.getY()]==static_cast<char>(178)||map[player.getX()-i][player.getY()]=='#')
+                if(map[player.getX()-i][player.getY()]==static_cast<char>(178)||map[player.getX()-i][player.getY()]=='#')//
                  {
                    wall_damage(player.getX()-i,player.getY());
                  break;
@@ -239,11 +239,12 @@ void shoot()//вистріл гравця
                  break;
                }
 
-                if(map[player.getX()+i][player.getY()]==static_cast<char>(178)||map[player.getX()+i][player.getY()]=='#')
+                if(map[player.getX()+i][player.getY()]==static_cast<char>(178)||map[player.getX()+i][player.getY()]=='#')//
                   {
                     wall_damage(player.getX()+i,player.getY());
                   break;
                   }
+
                 if(map[player.getX()+1][player.getY()]=='$')
                   {
                     player.setAlive(0);
@@ -273,6 +274,9 @@ for(int z=0;z<5;z++)
             break;
             }
 
+          if(map[e_bullet[z].getX()+i][e_bullet[z].getY()]==static_cast<char>(185)||map[e_bullet[z].getX()+i][e_bullet[z].getY()]==static_cast<char>(204)||map[e_bullet[z].getX()+i][e_bullet[z].getY()]==static_cast<char>(218)||map[e_bullet[z].getX()+i][e_bullet[z].getY()]==static_cast<char>(219))
+          break;
+
           if(map[e_bullet[z].getX()+i][e_bullet[z].getY()]==' ')
           map[e_bullet[z].getX()+i][e_bullet[z].getY()]=static_cast<char>(120);
 
@@ -288,6 +292,9 @@ for(int z=0;z<5;z++)
               wall_damage(e_bullet[z].getX()-i,e_bullet[z].getY());
             break;
             }
+
+          if(map[e_bullet[z].getX()-i][e_bullet[z].getY()]==static_cast<char>(185)||map[e_bullet[z].getX()-i][e_bullet[z].getY()]==static_cast<char>(204)||map[e_bullet[z].getX()-i][e_bullet[z].getY()]==static_cast<char>(218)||map[e_bullet[z].getX()-i][e_bullet[z].getY()]==static_cast<char>(219))
+          break;
 
           if(map[e_bullet[z].getX()-i][e_bullet[z].getY()]==' ')
          map[e_bullet[z].getX()-i][e_bullet[z].getY()]=static_cast<char>(120);
@@ -306,6 +313,9 @@ for(int z=0;z<5;z++)
             }
 
 
+          if(map[e_bullet[z].getX()][e_bullet[z].getY()+i]==static_cast<char>(185)||map[e_bullet[z].getX()][e_bullet[z].getY()+i]==static_cast<char>(204)||map[e_bullet[z].getX()][e_bullet[z].getY()+i]==static_cast<char>(218)||map[e_bullet[z].getX()][e_bullet[z].getY()+i]==static_cast<char>(219))
+          break;
+
             if(map[e_bullet[z].getX()][e_bullet[z].getY()+i]==' ')
           map[e_bullet[z].getX()][e_bullet[z].getY()+i]=static_cast<char>(120);
 
@@ -321,6 +331,9 @@ for(int z=0;z<5;z++)
             break;
             }
 
+          if(map[e_bullet[z].getX()][e_bullet[z].getY()-i]==static_cast<char>(185)||map[e_bullet[z].getX()][e_bullet[z].getY()-i]==static_cast<char>(204)||map[e_bullet[z].getX()][e_bullet[z].getY()-i]==static_cast<char>(218)||map[e_bullet[z].getX()][e_bullet[z].getY()-i]==static_cast<char>(219))
+          break;
+
           if(map[e_bullet[z].getX()][e_bullet[z].getY()-i]==' ')
          map[e_bullet[z].getX()][e_bullet[z].getY()-i]=static_cast<char>(120);
 
@@ -332,9 +345,6 @@ for(int z=0;z<5;z++)
   }
 
 }
-
-
-
 
 void e_shoot(int z)//постріли противників
 {
@@ -414,6 +424,9 @@ void shoot_dir()//візуалізація пострілу
               if(map[bullet.getX()][bullet.getY()-i]==static_cast<char>(178)||map[bullet.getX()][bullet.getY()-i]=='#'||map[bullet.getX()][bullet.getY()-i]=='$')
                 break;
 
+              //if(map[bullet.getX()][bullet.getY()-i]==static_cast<char>(180)||map[bullet.getX()][bullet.getY()-i]==static_cast<char>(195)||map[bullet.getX()][bullet.getY()-i]==static_cast<char>(194)||map[bullet.getX()][bullet.getY()-i]==static_cast<char>(193))
+              //break;
+
               map[bullet.getX()][bullet.getY()-i]=static_cast<char>(120);
 
             }
@@ -424,6 +437,9 @@ void shoot_dir()//візуалізація пострілу
             {
               if(map[bullet.getX()][bullet.getY()+i]==static_cast<char>(178)||map[bullet.getX()][bullet.getY()+i]=='#'||map[bullet.getX()][bullet.getY()+i]=='$')
                 break;
+
+              //if(map[bullet.getX()][bullet.getY()+i]==static_cast<char>(180)||map[bullet.getX()][bullet.getY()+i]==static_cast<char>(195)||map[bullet.getX()][bullet.getY()+i]==static_cast<char>(194)||map[bullet.getX()][bullet.getY()+i]==static_cast<char>(193))
+              //break;
 
               map[bullet.getX()][bullet.getY()+i]=static_cast<char>(120);
 
@@ -437,6 +453,9 @@ void shoot_dir()//візуалізація пострілу
               if(map[bullet.getX()-i][bullet.getY()]==static_cast<char>(178)||map[bullet.getX()-i][bullet.getY()]=='#'||map[bullet.getX()-1][bullet.getY()]=='$')
                 break;
 
+             // if(map[bullet.getX()-i][bullet.getY()]==static_cast<char>(180)||map[bullet.getX()-i][bullet.getY()]==static_cast<char>(195)||map[bullet.getX()-i][bullet.getY()]==static_cast<char>(194)||map[bullet.getX()-i][bullet.getY()]==static_cast<char>(193))
+             // break;
+
               map[bullet.getX()-i][bullet.getY()]=static_cast<char>(120);
 
             }
@@ -446,8 +465,11 @@ void shoot_dir()//візуалізація пострілу
       case 4:
           for(int i=0;i<10;i++)
             {
-              if(map[bullet.getX()+i][bullet.getY()]==static_cast<char>(178)||map[bullet.getX()+i][bullet.getY()]=='#'||map[bullet.getX()+i][bullet.getY()-i]=='$')
+              if(map[bullet.getX()+i][bullet.getY()]==static_cast<char>(178)||map[bullet.getX()+i][bullet.getY()]=='#'||map[bullet.getX()+i][bullet.getY()]=='$')
                 break;
+
+              //if(map[bullet.getX()+i][bullet.getY()]==static_cast<char>(180)||map[bullet.getX()+i][bullet.getY()]==static_cast<char>(195)||map[bullet.getX()+i][bullet.getY()]==static_cast<char>(194)||map[bullet.getX()+i][bullet.getY()]==static_cast<char>(193))
+             // break;
 
               map[bullet.getX()+i][bullet.getY()]=static_cast<char>(120);
 
@@ -463,6 +485,7 @@ void shoot_dir()//візуалізація пострілу
 
 void update()//оновлення ігрового поля
 {
+
        for(int i=1;i<HEIGHT-1;i++)
          for(int j=1;j<WIDTH-1;j++)
         {
